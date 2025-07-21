@@ -7,46 +7,76 @@
         <style>
             nav {
                 width: 100%;
+                height: 60px;
+            }
+            .container {
+                margin: 0px;
+            }
+            .side-bar {
+                position: fixed;
+                left: 0px;
+                width: 100px;
+                height: 100%;
+                box-sizing: border-box;
+            }
+            .content {
+                margin-top: 60px;
+                margin-left: 100px;
+            }
+            .card {
+                margin: 10px;
+                width: 30%;
+            }
+            .ch-profile {
+                width: 50px;
+                height: 50px;
+                margin: 10px 5px 5px 5px;
+                border-radius: 25px;
+            }
+            .vid-info {
+                margin: 5px;
             }
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed;">
-            <a href="home.html">Logo</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; z-index: 10;">
+            <a href="home.html">
+                Logo
+            </a>
             <input type="text" placeholder="search">
             <button>검색</button>
             <img src="" alt=""> <!-- 프로필 -->
             <p>profile</p>
         </nav>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
-        <h1>asdf</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col side-bar bg-light">
+                    <div class="row">
+                        <a href="">홈</a>
+                        <a href="">구독</a>
+                    </div>
+                </div>
+                <div class="col content">
+                    <div class="row">
+                        <div class="card col">
+                            <a href="https://www.youtube.com">
+                                <img src="thumbnail.png" class="card-img-top" alt="...">
+                            </a>
+                            <div class="row">
+                                <div class="col" style="max-width: 70px;">
+                                    <img src="profile.jpg" class="ch-profile" alt="">
+                                </div>
+                                <div class="col" style="margin-top: 5px;">
+                                    <h5 class="vid-info" style="font-weight: bold;">title</h5>
+                                    <h6 class="vid-info">channel name</h6>
+                                    <h6 class="vid-info">조회수 ???회 · ??일 전</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </body>
 </html>
