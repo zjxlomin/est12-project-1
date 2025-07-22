@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; z-index: 1;">
             <!-- 로고 -->
             <div>
@@ -15,21 +16,26 @@
                 </a> 
             </div>
             <!-- 검색창 -->
-            <div style="position: absolute; right: 30%;">
+            <div style="position: absolute; right: 20%; left: 20%; max-width: 500px;">
                 <input class="search-bar" type="text" placeholder="검색">
                 <button class="search-btn">검색</button>
             </div>
             <!-- 프로필 -->
             <a href="" style="position: absolute; right: 20px;"> 
                 <img class="ch-profile" src="img/profiles/profile.jpg" alt="" >
-            </div>
+            </a>
         </nav>
         <div class="container">
-
+            <div class="row">
+                <div class="col vid-cont">
+                    <script src="videoList.js"></script>
+                    <script>showVideo(videoList, id);</script>
+                </div>
+                <!-- 우측 영상 목록 -->
+                <div class="side-bar-vid bg-light">
+                    <script>showRecomm(videoList, id);</script>
+                </div>
+            </div>
         </div>
-
-        <script>
-            
-        </script>
     </body>
 </html>

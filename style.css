@@ -31,10 +31,17 @@ nav {
     margin: 0px;
     max-width: 100%;
 }
-.side-bar {
+.side-bar-home {
     position: fixed;
     left: 0px;
     width: 120px;
+    height: 100%;
+    padding-top: 60px;
+    box-sizing: border-box;
+}
+.side-bar-vid {
+    margin: 0px;
+    width: 500px;
     height: 100%;
     padding-top: 60px;
     box-sizing: border-box;
@@ -81,4 +88,14 @@ nav {
 .vid-info {
     margin: 3px;
     color: black;
+}
+.vid-cont {
+    margin-top: 60px;
+}
+.video {
+    background-color: lightgray;
+    width: 100%;
+    height: 60%;
+    min-width: 500px;
+    min-height: 300px;
 }

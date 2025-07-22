@@ -15,19 +15,19 @@
                 </a> 
             </div>
             <!-- 검색창 -->
-            <div style="position: absolute; right: 30%;">
+            <div style="position: absolute; right: 20%; left: 20%; max-width: 500px;">
                 <input class="search-bar" type="text" placeholder="검색">
                 <button class="search-btn">검색</button>
             </div>
             <!-- 프로필 -->
             <a href="" style="position: absolute; right: 20px;"> 
                 <img class="ch-profile" src="img/profiles/profile.jpg" alt="" >
-            </div>
+            </a>
         </nav>
         <div class="container">
             <div class="row">
                 <!-- 사이드바 -->
-                <div class="col side-bar bg-light">
+                <div class="col side-bar-home bg-light">
                     <div class="row">
                         <a href="home.html" class="side-menu">홈</a>
                         <a href="" class="side-menu">구독</a>
@@ -37,6 +37,7 @@
                 <div class="col content">
                     <div class="row">
                         <script src="videoList.js"></script>
+                        <script>showThumbs(videoList);</script>
                     </div>
                 </div>
             </div>
