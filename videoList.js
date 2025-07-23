@@ -2,7 +2,6 @@ const videoList = [
     {
         videoId: 1,
         src: "https://www.youtube.com/embed/h0KIWaUEIgQ?si=fkbzAXJpPeRG5i-v",
-        url: "",
         thumbnail: "https://img.youtube.com/vi/h0KIWaUEIgQ/mqdefault.jpg",
         time: "2:46",
         profile: "img/profiles/profile.jpg",
@@ -10,11 +9,11 @@ const videoList = [
         channel: "한로로 HANRORO",
         views: "56만",
         uploaded: "1년 전",
+        desc: "",
     },
     {
         videoId: 2,
         src: "https://www.youtube.com/embed/M8oCsI0iG7Y?si=pnHtqvez0UcKanYB",
-        url: "",
         thumbnail: "https://img.youtube.com/vi/M8oCsI0iG7Y/mqdefault.jpg",
         time: "5:11",
         profile: "img/profiles/profile.jpg",
@@ -22,11 +21,11 @@ const videoList = [
         channel: "잔나비 JANNABI",
         views: "98만",
         uploaded: "2개월 전",
+        desc: "",
     },
     {
         videoId: 3,
         src: "https://www.youtube.com/embed/19oT04OuBhg?si=wjLUIfMg0Sye4hoP",
-        url: "",
         thumbnail: "https://img.youtube.com/vi/19oT04OuBhg/mqdefault.jpg",
         time: "3:49",
         profile: "img/profiles/profile.jpg",
@@ -34,11 +33,11 @@ const videoList = [
         channel: "AKMU",
         views: "82만",
         uploaded: "6일 전",
+        desc: "",
     },
     {
         videoId: 4,
         src: "https://www.youtube.com/embed/cIMzRdVQI3E?si=dzxOQZrCgCP8KYIc",
-        url: "",
         thumbnail: "https://img.youtube.com/vi/cIMzRdVQI3E/mqdefault.jpg",
         time: "23:56",
         profile: "img/profiles/profile.jpg",
@@ -46,11 +45,11 @@ const videoList = [
         channel: "TVING SPORTS",
         views: "57만",
         uploaded: "10일 전",
+        desc: "",
     },
     {
         videoId: 5,
         src: "https://www.youtube.com/embed/Ha1tWwGntpM?si=zM179JgDQKtTt0jY",
-        url: "",
         thumbnail: "https://img.youtube.com/vi/Ha1tWwGntpM/mqdefault.jpg",
         time: "5:39",
         profile: "img/profiles/profile.jpg",
@@ -58,11 +57,11 @@ const videoList = [
         channel: "원투피니시",
         views: "13만",
         uploaded: "3개월 전",
+        desc: "",
     },
     {
         videoId: 6,
         src: "https://www.youtube.com/embed/nTGLkSVcyqg?si=ZGVaNiU7uy1aVszX",
-        url: "",
         thumbnail: "https://img.youtube.com/vi/nTGLkSVcyqg/mqdefault.jpg",
         time: "1:07:21",
         profile: "img/profiles/profile.jpg",
@@ -70,11 +69,11 @@ const videoList = [
         channel: "LCK",
         views: "300만",
         uploaded: "8개월 전",
+        desc: "",
     },
     {
         videoId: 7,
         src: "https://www.youtube.com/embed/tRxsB9MBhnQ?si=A0heY-9bgORZNCxS",
-        url: "",
         thumbnail: "https://img.youtube.com/vi/tRxsB9MBhnQ/mqdefault.jpg",
         time: "1:03:29",
         profile: "img/profiles/profile.jpg",
@@ -82,23 +81,23 @@ const videoList = [
         channel: "요런시점 movie",
         views: "8.8만",
         uploaded: "7개월 전",
+        desc: "",
     },
     {
         videoId: 8,
-        src: "https://www.youtube.com/embed/S3zCe2J7Ru4?si=2UI0Qj9W_4Fbdy_y",
-        url: "",
-        thumbnail: "https://img.youtube.com/vi/S3zCe2J7Ru4/mqdefault.jpg",
-        time: "0:49",
+        src: "https://www.youtube.com/embed/KHBwzpBZ3C4?si=hHyVYQbd5m0Qc_KF",
+        thumbnail: "https://img.youtube.com/vi/KHBwzpBZ3C4/mqdefault.jpg",
+        time: "51:12",
         profile: "img/profiles/profile.jpg",
-        title: "[어쩔수가없다] 티저 예고편",
-        channel: "CJ ENM Movie",
-        views: "94만",
-        uploaded: "1일 전",
+        title: "[1박2일 시즌1 153회 -2][오프로드편] 속고 속이는 오프로드 레이스! 긴장을 늦추는 순간 반전이 일어난다Full ver.(20100815-2)",
+        channel: "KBS Entertain: 깔깔티비",
+        views: "354만",
+        uploaded: "5년 전",
+        desc: "",
     },
     {
         videoId: 9,
         src: "https://www.youtube.com/embed/KNSqMLSy1H8?si=f1IhNwlYptOTBXpC",
-        url: "",
         thumbnail: "https://img.youtube.com/vi/KNSqMLSy1H8/mqdefault.jpg",
         time: "25:04",
         profile: "img/profiles/profile.jpg",
@@ -106,11 +105,11 @@ const videoList = [
         channel: "올끌 (All of MBClassic)",
         views: "149만",
         uploaded: "2년 전",
+        desc: "",
     },
     {
         videoId: 10,
         src: "https://www.youtube.com/embed/2pDqErA71Zg?si=GavoNyL3WlHnpsow",
-        url: "",
         thumbnail: "https://img.youtube.com/vi/2pDqErA71Zg/mqdefault.jpg",
         time: "4:17",
         profile: "img/profiles/profile.jpg",
@@ -118,6 +117,7 @@ const videoList = [
         channel: "가을매",
         views: "5.1천",
         uploaded: "5년 전",
+        desc: "",
     },
 ]
 
@@ -140,7 +140,7 @@ function showThumbs(videoList) {
                     </div>
                     <!-- 영상 정보 -->
                     <div class="col" style="margin-top: 5px;">
-                        <p class="vid-info" style="font-weight: bold; font-size: 20px;">
+                        <p class="vid-info" style="font-weight: bold; font-size: 18px;">
                             ${video.title}
                         </p>
                         <p class="vid-info" style="font-size: 15px;">
@@ -169,17 +169,23 @@ function showVideo(videoList, id) {
         <h3 class="vid-info" style="font-weight: bold; padding-top: 8px; padding-left: 15px;">${video.title}</h1>
         <div class="row">
             <!-- 채널 프로필 -->
-                <div class="col" style="max-width: 70px; margin-left: 10px;">
-                    <img src=${video.profile} class="ch-profile" alt="">
-                </div>
+            <div class="col" style="max-width: 70px; margin-left: 10px;">
+                <img src=${video.profile} class="ch-profile" alt="">
+            </div>
             <!-- 영상 정보 -->
             <div class="col" style="margin-top: 5px;">
-                <p class="vid-info" style="font-size: 15px;">
+                <p class="vid-info" style="font-size: 15px; font-weight: bold;">
                     ${video.channel}
                 </p>
-                <p class="vid-info" style="font-size: 15px;">
+            </div>
+        </div>
+        <!-- 영상 설명 --!>
+        <div class="row">
+            <div class="about-vid-cont">
+                <p class="vid-info" style="font-size: 15px; font-weight: bold;">
                     조회수 ${video.views}회 · ${video.uploaded}
                 </p>
+                <p>${video.desc}</p>
             </div>
         </div>
     `);
