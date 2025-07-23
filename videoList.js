@@ -1,57 +1,127 @@
 const videoList = [
     {
         videoId: 1,
-        src: "https://www.youtube.com/embed/14ultAJDYys?si=bKaIg1-lObl_fmca",
+        src: "https://www.youtube.com/embed/h0KIWaUEIgQ?si=fkbzAXJpPeRG5i-v",
         url: "",
-        thumbnail: "img/thumbnails/thumbnail.png",
-        time: "8:16",
+        thumbnail: "https://img.youtube.com/vi/h0KIWaUEIgQ/mqdefault.jpg",
+        time: "2:46",
         profile: "img/profiles/profile.jpg",
-        title: "title1",
-        channel: "channel",
-        views: "123",
-        uploaded: "1일 전",
+        title: "[MV] 한로로 (HANRORO) - 사랑하게 될 거야 (Landing in Love)",
+        channel: "한로로 HANRORO",
+        views: "56만",
+        uploaded: "1년 전",
     },
     {
         videoId: 2,
-        src: "https://www.youtube.com/embed/kvduHyPbFHA?si=Z0dsQDC36X9J9gpY",
+        src: "https://www.youtube.com/embed/M8oCsI0iG7Y?si=pnHtqvez0UcKanYB",
         url: "",
-        thumbnail: "img/thumbnails/thumbnail.png",
-        time: "2:34",
+        thumbnail: "https://img.youtube.com/vi/M8oCsI0iG7Y/mqdefault.jpg",
+        time: "5:11",
         profile: "img/profiles/profile.jpg",
-        title: "잠든 친구 오지에 버리기ㅋㅋㅋ",
-        channel: "핫소스",
-        views: "612만",
-        uploaded: "3년 전",
+        title: "잔나비 [JANNABI] - 사랑의이름으로! (feat. 카리나 of aespa) M/V",
+        channel: "잔나비 JANNABI",
+        views: "98만",
+        uploaded: "2개월 전",
     },
     {
-
+        videoId: 3,
+        src: "https://www.youtube.com/embed/19oT04OuBhg?si=wjLUIfMg0Sye4hoP",
+        url: "",
+        thumbnail: "https://img.youtube.com/vi/19oT04OuBhg/mqdefault.jpg",
+        time: "3:49",
+        profile: "img/profiles/profile.jpg",
+        title: "이찬혁 (LEE CHANHYUK) - '멸종위기사랑' M/V",
+        channel: "AKMU",
+        views: "82만",
+        uploaded: "6일 전",
     },
     {
-
+        videoId: 4,
+        src: "https://www.youtube.com/embed/cIMzRdVQI3E?si=dzxOQZrCgCP8KYIc",
+        url: "",
+        thumbnail: "https://img.youtube.com/vi/cIMzRdVQI3E/mqdefault.jpg",
+        time: "23:56",
+        profile: "img/profiles/profile.jpg",
+        title: "[드림 vs 나눔] 7/12 | 2025 KBO 올스타전 | 하이라이트 | TVING",
+        channel: "TVING SPORTS",
+        views: "57만",
+        uploaded: "10일 전",
     },
     {
-
+        videoId: 5,
+        src: "https://www.youtube.com/embed/Ha1tWwGntpM?si=zM179JgDQKtTt0jY",
+        url: "",
+        thumbnail: "https://img.youtube.com/vi/Ha1tWwGntpM/mqdefault.jpg",
+        time: "5:39",
+        profile: "img/profiles/profile.jpg",
+        title: "[F1입문 필수시청!] 🏎️F1뉴비를 위한 세상에서 가장 쉬운 F1 입문 가이드",
+        channel: "원투피니시",
+        views: "13만",
+        uploaded: "3개월 전",
     },
     {
-
+        videoId: 6,
+        src: "https://www.youtube.com/embed/nTGLkSVcyqg?si=ZGVaNiU7uy1aVszX",
+        url: "",
+        thumbnail: "https://img.youtube.com/vi/nTGLkSVcyqg/mqdefault.jpg",
+        time: "1:07:21",
+        profile: "img/profiles/profile.jpg",
+        title: "T1 vs BLG 매치 하이라이트 | 결승전 | 11.02 | 2024 월드 챔피언십",
+        channel: "LCK",
+        views: "300만",
+        uploaded: "8개월 전",
     },
     {
-
+        videoId: 7,
+        src: "https://www.youtube.com/embed/tRxsB9MBhnQ?si=A0heY-9bgORZNCxS",
+        url: "",
+        thumbnail: "https://img.youtube.com/vi/tRxsB9MBhnQ/mqdefault.jpg",
+        time: "1:03:29",
+        profile: "img/profiles/profile.jpg",
+        title: "⏰ 세상에서 가장 친절한 『테넷』 해설 몰아보기ㅣ캐릭터별 순행 역행 동선 완벽분석",
+        channel: "요런시점 movie",
+        views: "8.8만",
+        uploaded: "7개월 전",
     },
     {
-
+        videoId: 8,
+        src: "https://www.youtube.com/embed/S3zCe2J7Ru4?si=2UI0Qj9W_4Fbdy_y",
+        url: "",
+        thumbnail: "https://img.youtube.com/vi/S3zCe2J7Ru4/mqdefault.jpg",
+        time: "0:49",
+        profile: "img/profiles/profile.jpg",
+        title: "[어쩔수가없다] 티저 예고편",
+        channel: "CJ ENM Movie",
+        views: "94만",
+        uploaded: "1일 전",
     },
     {
-
+        videoId: 9,
+        src: "https://www.youtube.com/embed/KNSqMLSy1H8?si=f1IhNwlYptOTBXpC",
+        url: "",
+        thumbnail: "https://img.youtube.com/vi/KNSqMLSy1H8/mqdefault.jpg",
+        time: "25:04",
+        profile: "img/profiles/profile.jpg",
+        title: "[#무도] 길성준 일상 Vlog │ 에너지 과소비가 불러온 재앙🚨│ 지구 멸망(?) 에도 콩트 짜는 뼈그맨까지🦋 '나비효과' 3편 MBC101218방송",
+        channel: "올끌 (All of MBClassic)",
+        views: "149만",
+        uploaded: "2년 전",
     },
     {
-
-    },
-    {
-
+        videoId: 10,
+        src: "https://www.youtube.com/embed/2pDqErA71Zg?si=GavoNyL3WlHnpsow",
+        url: "",
+        thumbnail: "https://img.youtube.com/vi/2pDqErA71Zg/mqdefault.jpg",
+        time: "4:17",
+        profile: "img/profiles/profile.jpg",
+        title: "진나이 토모노리-앵무새.flv",
+        channel: "가을매",
+        views: "5.1천",
+        uploaded: "5년 전",
     },
 ]
 
+// home functions
 function showThumbs(videoList) {
     for(const video of videoList) {
         document.write(`
@@ -59,7 +129,7 @@ function showThumbs(videoList) {
                 <!-- 썸네일, 러닝타임 -->
                 <div style="position: relative;">
                     <img src=${video.thumbnail} class="card-img-top" alt="..." style="border-radius: 10px;">
-                    <div class="vid-time">
+                    <div class="vid-time" style="bottom: 10px;">
                         ${video.time}
                     </div>
                 </div>
@@ -86,6 +156,7 @@ function showThumbs(videoList) {
     }
 }
 
+// video functions
 const urlParams = new URL(location.href).searchParams;
 const id = urlParams.get('videoId');
 
@@ -127,7 +198,7 @@ function showRecomm(videoList, id) {
                     <!-- 썸네일, 러닝타임 -->
                     <div class="col" style="position: relative; max-width: 190px;">
                         <img src=${video.thumbnail} class="card-img-top" alt="..." style="border-radius: 10px; width: 170px;">
-                        <div class="vid-time" style="right: 10px; bottom: 5px;">
+                        <div class="vid-time" style="right: 12px; top: 70px;">
                             ${video.time}
                         </div>
                     </div>
