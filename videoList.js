@@ -161,7 +161,7 @@ const urlParams = new URL(location.href).searchParams;
 const id = urlParams.get('videoId');
 const video = videoList[id-1];
 
-function showVideo(video, id) {
+function showVideo(video) {
     document.write(`
         <div class="video">
             <iframe src=${video.src} frameborder="0" width="100%" height="100%"></iframe>
