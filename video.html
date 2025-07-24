@@ -5,8 +5,10 @@
         <title>Video</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <script src="videoList.js"></script>
     </head>
     <body>
+        <!-- 상단바 -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; z-index: 1;">
             <!-- 로고 -->
             <div>
@@ -26,7 +28,7 @@
             </div>
             <!-- 프로필 -->
             <a href="" style="position: absolute; right: 20px;"> 
-                <img class="ch-profile" src="img/profiles/profile.jpg" alt="" >
+                <img class="ch-profile" src="img/profiles/my_profile.jpg" alt="" >
             </a>
         </nav>
         <div class="container">
@@ -34,8 +36,7 @@
                 <div class="col vid-cont" style="position: relative;">
                     <div class="row" style="position: relative;">
                         <!-- 영상 및 설명 -->
-                        <script src="videoList.js"></script>
-                        <script>showVideo(videoList, id);</script>
+                        <script>showVideo(video, id);</script>
                         <!-- 좋아요/싫어요 버튼 -->
                         <button id="like" class="like-btn">
                             <div class="row">
@@ -61,7 +62,33 @@
                     </div>
                     <!-- 댓글창 -->
                     <div class="row">
-                        <div>comment</div>
+                        <h5 id="commNum" style="margin-top: 20px; padding-left: 12px; font-weight: bold;">
+                            댓글 1개
+                        </h5>
+                        <!-- 댓글 입력 -->
+                        <div class="row" style="max-height: 40px; padding: 0px; margin-bottom: 30px;">
+                            <div class="col" style="max-width: 40px; margin-left: 15px;">
+                                <img class="ch-profile" style="padding: 0px; margin: 0px;" src="img/profiles/my_profile.jpg" alt="" >
+                            </div>
+                            <div class="col" style="padding-left: 25px;">
+                                <input type="text" id="commInput" class="comment-input" placeholder="댓글 추가...">
+                            </div>
+                        </div>
+                        <!-- 댓글 목록 -->
+                        <div id="commList">
+                            <div id="comm_1">
+                                <div class="row" style="padding: 0px; margin-bottom: 30px;">
+                                    <div class="col" style="max-width: 40px; margin-left: 15px; padding: 0px;">
+                                        <img class="ch-profile" style="padding: 0px; margin: 0px;" src="img/profiles/notmy_profile.jpg" alt="" >
+                                    </div>
+                                    <div class="col" style="padding-left: 25px;">
+                                        <div style="font-weight: bold;">@someone</div>
+                                        <div>Hello^^</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 <!-- 우측 영상 목록 -->
@@ -70,11 +97,14 @@
                 </div>
             </div>
         </div>
+
         <script>
+            // 검색창
             document.getElementById("clear").addEventListener('click', function() {
                 document.getElementById("search").value = "";
             })
 
+            // 좋아요/싫어요 버튼
             let likes = 123;
             let isLiked = false;
             let isDisliked = false;
@@ -118,6 +148,36 @@
                 else {
                     isDisliked = false;
                     dislikeBtn.style.fill = "none";
+                }
+            })
+
+            // 댓글 입력
+            let commNum = 1;
+
+            const commInput = document.getElementById("commInput");
+            const commList = document.getElementById("commList");
+
+            commInput.addEventListener('click', function() {
+                commInput.style.borderBottom = "2px solid black";
+            })
+            
+            commInput.addEventListener('keydown', function(event) {
+                if(event.key === "Enter" && this.value != "") {
+                    commList.insertAdjacentHTML("afterbegin",`
+                        <div id="comm_${++commNum}">
+                            <div class="row" style="padding: 0px; margin-bottom: 30px;">
+                                <div class="col" style="max-width: 40px; margin-left: 15px; padding: 0px;">
+                                    <img class="ch-profile" style="padding: 0px; margin: 0px;" src="img/profiles/my_profile.jpg" alt="" >
+                                </div>
+                                <div class="col" style="padding-left: 25px;">
+                                    <div style="font-weight: bold;">@user</div>
+                                    <div>${this.value}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                    this.value = "";
+                    document.getElementById("commNum").textContent = `댓글 ${commNum}개`;
                 }
             })
         </script>

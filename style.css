@@ -17,6 +17,9 @@ nav {
     border-radius: 20px;
     position: relative;
 }
+input {
+    outline: none;
+}
 .search-btn {
     width: 50px;
     height: 40px;
@@ -38,6 +41,7 @@ nav {
 }
 button:hover {
     background-color: rgb(0,0,0,0.3);
+    transition: 0.3s;
 }
 .container {
     margin: 0px;
@@ -121,7 +125,6 @@ button:hover {
     border: 0px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    transition: 0.3s;
 }
 .dislike-btn {
     background-color: lightgray;
@@ -149,4 +152,9 @@ button:hover {
     margin-left: 12px;
     margin-top: 5px;
     padding-top: 8px;
+}
+.comment-input {
+    width: 100%;
+    border: 0px;
+    border-bottom: 1px solid lightgray;
 }
