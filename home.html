@@ -25,17 +25,27 @@
                 </button>
             </div>
             <!-- 프로필 -->
-            <a href="" style="position: absolute; right: 20px;"> 
+            <button class="btn-open-modal" style="position: absolute; right: 20px; background-color: rgb(0,0,0,0);">
                 <img class="ch-profile" src="img/profiles/my_profile.jpg" alt="" >
-            </a>
+            </button>
+            <div class="modal">
+                <!-- 계정 정보 메뉴 -->
+                <div class="modal-my">
+                    <script>showMymenu(myAccount);</script>
+                </div>
+            </div>
         </nav>
         <div class="container">
             <div class="row">
                 <!-- 사이드바 -->
                 <div class="col side-bar-home bg-light">
                     <div class="row">
-                        <a href="home.html" class="side-menu">홈</a>
-                        <a href="" class="side-menu">구독</a>
+                        <div class="side-menu">
+                            <a href="home.html" class="side-menu-txt">홈</a>
+                        </div>
+                        <div class="side-menu">
+                            <a href="" class="side-menu-txt">구독</a>
+                        </div>
                     </div>
                 </div>
                 <!-- 영상 목록 -->
@@ -49,6 +59,19 @@
         <script>
             document.getElementById("clear").addEventListener('click', function() {
                 document.getElementById("search").value = "";
+            })
+
+            const modal = document.querySelector('.modal');
+            const btnOpenModal=document.querySelector('.btn-open-modal');
+
+            btnOpenModal.addEventListener("click", function() {
+                modal.style.display="flex";
+
+            });
+            modal.addEventListener('click', function(e) {
+                if(e.target == modal) {
+                    modal.style.display="none";
+                }
             })
         </script>
     </body>
