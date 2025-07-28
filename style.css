@@ -1,18 +1,89 @@
 * {
     font-family: Roboto, Arial, sans-serif;
 }
+button {
+    border: 0px;
+}
+button:hover {
+    background-color: rgb(0,0,0,0.2);
+    transition: 0.3s;
+}
+input {
+    outline: none;
+}
 nav {
     width: 100%;
     height: 60px;
 }
-.left-btn {
-    position: absolute;
-    top: 12px;
-    left: 15px;
+.about-vid-cont {
+    background-color: rgb(0,0,0,0.1);
+    border-radius: 10px;
+    width: 100%;
+    height: 100px;
+    margin-left: 12px;
+    margin-top: 5px;
+    padding-top: 8px;
+}
+.card {
+    margin: 5px;
+    padding: 5px;
+    width: 32%;
+    min-width: 300px;
+    border: 0px;
+    transition: 0.3s;
+}
+.card:hover {
+    background-color: lightgray;
+}
+.ch-profile {
+    width: 40px;
+    height: 40px;
+    margin: 10px 5px 5px 5px;
+    border-radius: 25px;
+}
+.clear-btn {
     background-color: rgb(255,255,255,0);
     border-radius: 20px;
     width: 40px;
     height: 40px;
+    position: absolute;
+    right: 50px;
+}
+.comment-input {
+    width: 100%;
+    border: 0px;
+    border-bottom: 1px solid lightgray;
+}
+.comm-side-btn {
+    background-color: rgb(0,0,0,0);
+    border-radius: 12px;
+    width: 24px;
+    height: 24px;
+    border: 0px;
+    padding: 0px;
+}
+.container {
+    margin: 0px;
+    max-width: 100%;
+}
+.content {
+    margin-top: 60px;
+    margin-left: 230px;
+}
+.dislike-btn {
+    background-color: rgb(0,0,0,0.1);
+    position: relative;
+    right: 5px;
+    padding: 0px;
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    bottom: 110px;
+    right: 20px;
+    border: 0px;
+    border-left: 1px solid gray;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 .home-icon {
     position: absolute;
@@ -23,82 +94,26 @@ nav {
     margin-left: 25px;
     margin-right: 25px;
 }
-.search-bar {
-    padding-left: 20px;
-    width: 100%;
-    min-width: 300px;
-    height: 40px;
-    border: 1px solid lightgray;
-    border-radius: 20px;
-    position: relative;
-}
-input {
-    outline: none;
-}
-.search-btn {
-    width: 50px;
-    height: 40px;
-    box-sizing: border-box;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border: 1px solid lightgray;
+.left-btn {
     position: absolute;
-    right: 0px;
-}
-.clear-btn {
+    top: 12px;
+    left: 15px;
     background-color: rgb(255,255,255,0);
     border-radius: 20px;
     width: 40px;
     height: 40px;
+}
+.like-btn {
+    background-color: rgb(0,0,0,0.1);
+    padding: 0px;
+    width: 100px;
+    height: 40px;
     position: absolute;
-    right: 50px;
-}
-button {
-    border: 0px;
-}
-button:hover {
-    background-color: rgb(0,0,0,0.3);
-    transition: 0.3s;
-}
-.modal {
-    position: absoulute;
-    display: none;
-    justify-content: center;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0,0,0,0);
-}
-.modal-my {
-    position: absolute;
-    top: 400px;
+    bottom: 110px;
     right: 80px;
-    width: 300px;
-    height: 95%;
-    margin: 0px;
-    background-color: rgb(255,255,255);
-    border-radius: 10px;
-    box-shadow: 0 12px 16px 0 rgba(34,36,38,0.15);
-    transform: translateY(-50%);
-}
-.modal-left {
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    width: 230px;
-    height: 100%;
-    margin: 0px;
-    background-color: white;
-    transform: translateY(-50%);
-    padding-left: 12px;
-    padding-right: 12px;
-}
-.menu-section {
-    border-bottom: 1px solid lightgray;
-    padding-bottom: 8px;
-    padding-top: 8px;
-    margin: 0px;
+    border: 0px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 .menu-btn {
     margin-top: 5px;
@@ -121,9 +136,64 @@ button:hover {
 .menu-btn:hover, .menu-btn-sh:hover {
     background-color: rgb(0,0,0,0.1);
 }
-.container {
+.menu-section {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 8px;
+    padding-top: 8px;
     margin: 0px;
-    max-width: 100%;
+}
+.modal {
+    position: absoulute;
+    display: none;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0,0);
+}
+.modal-left {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    width: 230px;
+    height: 100%;
+    margin: 0px;
+    background-color: white;
+    transform: translateY(-50%);
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.modal-my {
+    position: absolute;
+    top: 400px;
+    right: 80px;
+    width: 300px;
+    height: 95%;
+    margin: 0px;
+    background-color: rgb(255,255,255);
+    border-radius: 10px;
+    box-shadow: 0 12px 16px 0 rgba(34,36,38,0.15);
+    transform: translateY(-50%);
+}
+.search-bar {
+    padding-left: 20px;
+    width: 100%;
+    min-width: 300px;
+    height: 40px;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    position: relative;
+}
+.search-btn {
+    width: 50px;
+    height: 40px;
+    box-sizing: border-box;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 1px solid lightgray;
+    position: absolute;
+    right: 0px;
 }
 .side-bar-home {
     position: fixed;
@@ -159,20 +229,31 @@ button:hover {
 .sub-btn-2:hover {
     background-color: rgb(0,0,0,0.1);
 }
-.content {
-    margin-top: 60px;
-    margin-left: 230px;
-}
-.card {
-    margin: 5px;
-    padding: 5px;
-    width: 32%;
-    min-width: 300px;
+.subscribe {
+    background-color: black;
+    padding: 0px;
+    width: 70px;
+    height: 40px;
+    position: absolute;
+    bottom: 110px;
+    left: 240px;
     border: 0px;
-    transition: 0.3s;
+    border-radius: 20px;
+    color: white;
 }
-.card:hover {
-    background-color: lightgray;
+.subscribe:hover { background-color: black; }
+.video {
+    width: 100%;
+    height: 600px;
+    min-width: 500px;
+}
+.vid-cont {
+    margin-top: 60px;
+    padding: 20px;
+}
+.vid-info {
+    margin: 3px;
+    color: black;
 }
 .vid-time {
     position: absolute;
@@ -186,74 +267,6 @@ button:hover {
     font-size: 14px;
     font-weight: bold;
 }
-.ch-profile {
-    width: 40px;
-    height: 40px;
-    margin: 10px 5px 5px 5px;
-    border-radius: 25px;
-}
-.vid-info {
-    margin: 3px;
-    color: black;
-}
-.vid-cont {
-    margin-top: 60px;
-    padding: 20px;
-}
-.video {
-    width: 100%;
-    height: 600px;
-    min-width: 500px;
-}
-.like-btn {
-    background-color: lightgray;
-    padding: 0px;
-    width: 100px;
-    height: 40px;
-    position: absolute;
-    bottom: 110px;
-    right: 80px;
-    border: 0px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
-.dislike-btn {
-    background-color: lightgray;
-    position: relative;
-    right: 5px;
-    padding: 0px;
-    width: 60px;
-    height: 40px;
-    position: absolute;
-    bottom: 110px;
-    right: 20px;
-    border: 0px;
-    border-left: 1px solid gray;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
 #likeIcon, #dislikeIcon {
     fill: none;
-}
-.about-vid-cont {
-    background-color: lightgray;
-    border-radius: 10px;
-    width: 100%;
-    height: 100px;
-    margin-left: 12px;
-    margin-top: 5px;
-    padding-top: 8px;
-}
-.comment-input {
-    width: 100%;
-    border: 0px;
-    border-bottom: 1px solid lightgray;
-}
-.comm-side-btn {
-    background-color: rgb(0,0,0,0);
-    border-radius: 12px;
-    width: 24px;
-    height: 24px;
-    border: 0px;
-    padding: 0px;
 }
