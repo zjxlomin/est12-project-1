@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Home</title>
+        <title>YouTube</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <script src="externalJs.js"></script>
@@ -14,12 +14,15 @@
     <body>
         <!-- 상단바 -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white" style="position: fixed; z-index: 1;">
+            <button id="left-btn" class="left-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+            </button>
             <!-- 로고 -->
             <a href="home.html">
                 <img src="img/yt_icon.png" alt="" class="home-icon">
             </a> 
             <!-- 검색창 -->
-            <div style="position: absolute; right: 20%; left: 20%; max-width: 500px;">
+            <div style="position: absolute; right: 20%; left: 23%; max-width: 500px;">
                 <input id="search" class="search-bar" type="text" placeholder="검색">
                 <button class="search-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="30" height="30"><path fill-rule="evenodd" d="M12.323 13.383a5.5 5.5 0 1 1 1.06-1.06l2.897 2.897a.75.75 0 1 1-1.06 1.06l-2.897-2.897Zm.677-4.383a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>
@@ -43,9 +46,7 @@
             <div class="row">
                 <!-- 사이드바 -->
                 <div class="col side-bar-home">
-                    <div class="row menu-section">
-                        <script>showLeftside(isHome, isSub);</script>
-                    </div>
+                    <script>showLeftside(isHome, isSub);</script>
                 </div>
                 <!-- 영상 목록 -->
                 <div class="col content">
@@ -56,6 +57,30 @@
             </div>
         </div>
         <script>
+            const leftBtn = document.getElementById("left-btn");
+            const leftNormal = document.getElementById("leftNormal");
+            const leftShrinked = document.getElementById("leftShrinked");
+            const leftSideBar = document.querySelector('.side-bar-home');
+            const cont = document.querySelector('.content');
+            let isLeftShrinked = false;
+
+            leftBtn.addEventListener('click', function() {
+                if(!isLeftShrinked) {
+                    leftNormal.style.display = "none";
+                    leftShrinked.style.display = "block";
+                    leftSideBar.style.maxWidth = "80px";
+                    cont.style.marginLeft = "80px";
+                    isLeftShrinked = true;
+                }
+                else {
+                    leftNormal.style.display = "block";
+                    leftShrinked.style.display = "none";
+                    leftSideBar.style.maxWidth = "230px";
+                    cont.style.marginLeft = "230px";
+                    isLeftShrinked = false;
+                }
+            })
+
             document.getElementById("clear").addEventListener('click', function() {
                 document.getElementById("search").value = "";
             })
