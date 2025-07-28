@@ -7,6 +7,7 @@ const videoList = [
         profile: "img/profiles/notmy_profile.jpg",
         title: "[MV] 한로로 (HANRORO) - 사랑하게 될 거야 (Landing in Love)",
         channel: "한로로 HANRORO",
+        subs: "6.4만",
         views: "56만",
         uploaded: "1년 전",
         desc: "설명",
@@ -19,6 +20,7 @@ const videoList = [
         profile: "img/profiles/notmy_profile.jpg",
         title: "231008 실리카겔(Silica Gel) - T + Tik Tak Tok @ 2023 부산국제록페스티벌, 삼락생태공원",
         channel: "gongrot",
+        subs: "2.83만",
         views: "24만",
         uploaded: "1년 전",
         desc: "설명",
@@ -31,6 +33,7 @@ const videoList = [
         profile: "img/profiles/notmy_profile.jpg",
         title: "더피 무드등 만들기",
         channel: "사나고 Sanago",
+        subs: "402만",
         views: "80만",
         uploaded: "2일 전",
         desc: "설명",
@@ -43,6 +46,7 @@ const videoList = [
         profile: "img/profiles/notmy_profile.jpg",
         title: "[롯데 vs SSG] 7/31 경기 I 2024 신한 SOL뱅크 KBO 리그 I 하이라이트 I TVING",
         channel: "TVING SPORTS",
+        subs: "40.6만",
         views: "19만",
         uploaded: "11개월 전",
         desc: "설명",
@@ -55,6 +59,7 @@ const videoList = [
         profile: "img/profiles/notmy_profile.jpg",
         title: "[F1입문 필수시청!] 🏎️F1뉴비를 위한 세상에서 가장 쉬운 F1 입문 가이드",
         channel: "원투피니시",
+        subs: "2.88만",
         views: "13만",
         uploaded: "3개월 전",
         desc: "설명",
@@ -67,6 +72,7 @@ const videoList = [
         profile: "img/profiles/notmy_profile.jpg",
         title: "T1 vs BLG 매치 하이라이트 | 결승전 | 11.02 | 2024 월드 챔피언십",
         channel: "LCK",
+        subs: "159만",
         views: "300만",
         uploaded: "8개월 전",
         desc: "설명",
@@ -79,6 +85,7 @@ const videoList = [
         profile: "img/profiles/notmy_profile.jpg",
         title: "⏰ 세상에서 가장 친절한 『테넷』 해설 몰아보기ㅣ캐릭터별 순행 역행 동선 완벽분석",
         channel: "요런시점 movie",
+        subs: "20만",
         views: "8.8만",
         uploaded: "7개월 전",
         desc: "설명",
@@ -91,6 +98,7 @@ const videoList = [
         profile: "img/profiles/notmy_profile.jpg",
         title: "[밥묵자] 대화가 필요해 2023",
         channel: "꼰대희",
+        subs: "190만",
         views: "701만",
         uploaded: "2년 전",
         desc: "설명",
@@ -103,6 +111,7 @@ const videoList = [
         profile: "img/profiles/notmy_profile.jpg",
         title: "[#무도] 길성준 일상 Vlog │ 에너지 과소비가 불러온 재앙🚨│ 지구 멸망(?) 에도 콩트 짜는 뼈그맨까지🦋 '나비효과' 3편 MBC101218방송",
         channel: "올끌 (All of MBClassic)",
+        subs: "131만",
         views: "149만",
         uploaded: "2년 전",
         desc: "설명",
@@ -115,6 +124,7 @@ const videoList = [
         profile: "img/profiles/notmy_profile.jpg",
         title: "진나이 토모노리-앵무새.flv",
         channel: "가을매",
+        subs: "327",
         views: "5.1천",
         uploaded: "5년 전",
         desc: "설명",
@@ -269,6 +279,7 @@ function showMymenu(myAccount) {
 
 function showLeftside(isHome, isSub) {
     document.write(`
+        <!-- 확장된 사이드바 --!>
         <div id="leftNormal" style="display: block;">
             <div class="row menu-section">
                 <a href="home.html" class="menu-btn row" style="height: 40px; border-radius: 10px;
@@ -365,8 +376,9 @@ function showLeftside(isHome, isSub) {
                 </a>
             </div>
         </div>
+        <!-- 축소된 사이드바 --!>
         <div id="leftShrinked" style="display: none;">
-            <a href="" class="menu-btn-sh row" style="height: 75px; border-radius: 10px;">
+            <a href="home.html" class="menu-btn-sh row" style="height: 75px; border-radius: 10px;">
                 <div class="row" style="padding: 0px; max-height: 48px; width: 48px;">
                     ${isHome ? 
                     `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path clip-rule="evenodd" d="M22.146 11.146a.5.5 0 01-.353.854H20v7.5a1.5 1.5 0 01-1.5 1.5H14v-8h-4v8H5.5A1.5 1.5 0 014 19.5V12H2.207a.5.5 0 01-.353-.854L12 1l10.146 10.146Z" fill-rule="evenodd"></path></svg>`
@@ -382,7 +394,7 @@ function showLeftside(isHome, isSub) {
                 </div>
                 <div clas="row" style="padding: 0px; font-size: 12px; text-align: center;">Shorts</div>
             </a>
-            <a href="" class="menu-btn-sh row" style="height: 75px; border-radius: 10px;">
+            <a href="subscribe.html" class="menu-btn-sh row" style="height: 75px; border-radius: 10px;">
                 <div class="row" style="padding: 0px; max-height: 48px; width: 48px;">
                     ${isSub ?
                     `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path clip-rule="evenodd" d="M5.5 3A1.5 1.5 0 004 4.5h16A1.5 1.5 0 0018.5 3h-13ZM2 7.5A1.5 1.5 0 013.5 6h17A1.5 1.5 0 0122 7.5v11a1.5 1.5 0 01-1.5 1.5h-17A1.5 1.5 0 012 18.5v-11Zm8 2.87a.5.5 0 01.752-.431L16 13l-5.248 3.061A.5.5 0 0110 15.63v-5.26Z" fill-rule="evenodd"></path></svg>`
@@ -506,6 +518,9 @@ function showVideo(video) {
             <div class="col" style="margin-top: 5px; padding: 0px;">
                 <p class="vid-info" style="font-size: 15px; font-weight: bold;">
                     ${video.channel}
+                </p>
+                <p class="vid-info" style="font-size: 13px;">
+                    구독자 ${video.subs}명
                 </p>
             </div>
         </div>

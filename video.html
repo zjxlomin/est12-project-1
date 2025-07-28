@@ -10,6 +10,7 @@
     <body>
         <!-- 상단바 -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white" style="position: fixed; z-index: 1;">
+            <!-- 좌측 사이드바 펼치기 버튼 -->
             <button id="left-btn" class="left-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
             </button>
@@ -27,12 +28,12 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
                 </button>
             </div>
-            <!-- 프로필 -->
+            <!-- 프로필 사진 -->
             <button class="btn-open-modal" style="position: absolute; right: 20px; background-color: rgb(0,0,0,0);">
                 <img class="ch-profile" src="img/profiles/my_profile.jpg" alt="" >
             </button>
-            <div class="modal">
-                <!-- 계정 정보 메뉴 -->
+            <div class="modal" id="modal-mymenu">
+                <!-- 계정 정보 메뉴 modal -->
                 <div class="modal-my">
                     <script>showMymenu(myAccount);</script>
                 </div>
@@ -40,6 +41,20 @@
         </nav>
         <div class="container">
             <div class="row">
+                <!-- 좌측 사이드바 modal -->
+                <div class="modal" id="modal-left" style="background-color: rgb(0,0,0,0.4);">
+                    <div class="col side-bar-home modal-left">
+                        <div style="position: absolute; top: 0px; left: 0px;">
+                            <button class="left-btn" id="close-left">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+                            </button>
+                            <a href="home.html">
+                                <img src="img/yt_icon.png" alt="" class="home-icon">
+                            </a>
+                        </div>
+                        <script>showLeftside(false, false);</script>
+                    </div>
+                </div>
                 <div class="col vid-cont" style="position: relative;">
                     <div class="row" style="position: relative;">
                         <!-- 영상 및 설명 -->
@@ -105,22 +120,39 @@
         </div>
 
         <script>
-            // 검색창
+            // 검색어 지우기
             document.getElementById("clear").addEventListener('click', function() {
                 document.getElementById("search").value = "";
             })
 
-            const modal = document.querySelector('.modal');
-            const btnOpenModal=document.querySelector('.btn-open-modal');
+            // 계정 정보 메뉴 modal
+            const modalMy = document.getElementById("modal-mymenu")
+            const btnOpenModal = document.querySelector('.btn-open-modal');
 
             btnOpenModal.addEventListener("click", function() {
-                modal.style.display="flex";
+                modalMy.style.display = "flex";
 
             });
-            modal.addEventListener('click', function(e) {
-                if(e.target == modal) {
-                    modal.style.display="none";
+            modalMy.addEventListener('click', function(e) {
+                if(e.target == modalMy) {
+                    modalMy.style.display = "none";
                 }
+            })
+
+            // 좌측 사이드바 열기/닫기 modal
+            const modalLeft = document.getElementById("modal-left")
+            const btnOpenLeft = document.querySelector('.left-btn');
+
+            btnOpenLeft.addEventListener("click", function() {
+                modalLeft.style.display = "flex";
+            })
+            modalLeft.addEventListener("click", function(e) {
+                if(e.target == modalLeft) {
+                    modalLeft.style.display = "none";
+                }
+            })
+            document.getElementById("close-left").addEventListener("click", function() {
+                modalLeft.style.display = "none";
             })
 
             // 좋아요/싫어요 버튼
@@ -170,7 +202,7 @@
                 }
             })
 
-            // 댓글 입력
+            // 댓글 추가/삭제
             let commNum = 1;
             let commId = 1;
 
