@@ -9,36 +9,7 @@
     </head>
     <body>
         <!-- 상단바 -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white" style="position: fixed; z-index: 1;">
-            <!-- 좌측 사이드바 펼치기 버튼 -->
-            <button id="left-btn" class="left-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
-            </button>
-            <!-- 로고 -->
-            <a href="home.html">
-                <img src="img/yt_icon.png" alt="" class="home-icon">
-            </a> 
-            <!-- 검색창 -->
-            <div style="position: absolute; right: 20%; left: 23%; max-width: 500px;">
-                <input id="search" class="search-bar" type="text" placeholder="검색">
-                <button class="search-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="30" height="30"><path fill-rule="evenodd" d="M12.323 13.383a5.5 5.5 0 1 1 1.06-1.06l2.897 2.897a.75.75 0 1 1-1.06 1.06l-2.897-2.897Zm.677-4.383a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>
-                </button>
-                <button id="clear" class="clear-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-                </button>
-            </div>
-            <!-- 프로필 사진 -->
-            <button class="btn-open-modal" style="position: absolute; right: 20px; background-color: rgb(0,0,0,0);">
-                <img class="ch-profile" src="img/profiles/my_profile.jpg" alt="" >
-            </button>
-            <div class="modal" id="modal-mymenu">
-                <!-- 계정 정보 메뉴 modal -->
-                <div class="modal-my">
-                    <script>showMymenu(myAccount);</script>
-                </div>
-            </div>
-        </nav>
+        <script>showHeader(myAccount);</script>
         <div class="container">
             <div class="row">
                 <!-- 좌측 사이드바 modal -->
@@ -90,24 +61,28 @@
                             댓글 1개
                         </h5>
                         <!-- 댓글 입력 -->
-                        <div class="row" style="max-height: 40px; padding: 0px; margin-bottom: 30px;">
+                        <div class="row" style="max-height: auto; padding: 0px;">
                             <div class="col" style="max-width: 40px; margin-left: 15px;">
                                 <img class="ch-profile" style="padding: 0px; margin: 0px;" src="img/profiles/my_profile.jpg" alt="" >
                             </div>
                             <div class="col" style="padding-left: 25px;">
-                                <input type="text" id="commInput" class="comment-input" placeholder="댓글 추가...">
+                                <textarea type="text" id="commInput" class="comment-input" rows="1" placeholder="댓글 추가..."></textarea>
                             </div>
                         </div>
+                        <div id="commBtnCont" style="position: relative; display: none;">
+                            <button class="input-comm-quit">취소</button>
+                            <button class="input-comm-subm"disabled="true">댓글</button>
+                        </div>
                         <!-- 댓글 목록 -->
-                        <div id="commList">
+                        <div id="commList" style="margin-top: 30px;">
                             <div id="comm_1">
-                                <div class="row" style="padding: 0px; margin-bottom: 30px;">
+                                <div class="row" style="padding: 0px; margin-top: 30px;">
                                     <div class="col" style="max-width: 40px; margin-left: 15px; padding: 0px;">
                                         <img class="ch-profile" style="padding: 0px; margin: 0px;" src="img/profiles/notmy_profile.jpg" alt="" >
                                     </div>
                                     <div class="col" style="padding-left: 25px;">
-                                        <div style="font-weight: bold;">@someone</div>
-                                        <div>Hello :)</div>
+                                        <div style="font-weight: bold; margin-bottom: 3px;">@someone</div>
+                                        <pre>잘 보고 갑니다~</pre>
                                     </div>
                                 </div>
                             </div>
@@ -204,52 +179,68 @@
                 }
             })
 
-            // 댓글 추가/삭제
+            // 댓글 입력, 추가, 삭제
             let commNum = 1;
             let commId = 1;
 
             const commInput = document.getElementById("commInput");
+            const commBtnCont = document.getElementById("commBtnCont");
+            const quitBtn = document.querySelector('.input-comm-quit');
+            const subBtn = document.querySelector('.input-comm-subm');
             const commList = document.getElementById("commList");
 
-            commInput.addEventListener('click', function() {
+            commInput.addEventListener('focus', function() {
                 commInput.style.borderBottom = "2px solid black";
+                commBtnCont.style.display = "flex";
+            })
+            commInput.addEventListener('blur', function() {
+                commInput.style.borderBottom = "1px solid lightgray";
+            })
+            quitBtn.addEventListener('click', function() {
+                commInput.value = "";
+                subBtn.disabled = true;
+                commBtnCont.style.display = "none";
+            })
+            commInput.addEventListener('input', function() {
+                subBtn.disabled = false;
+                if(this.value == "") subBtn.disabled = true;
             })
             
-            commInput.addEventListener('keydown', function(event) {
-                if(event.key === "Enter" && this.value != "") {
-                    commList.insertAdjacentHTML("afterbegin",`
-                        <div id="comm_${++commId}">
-                            <div class="row" style="padding: 0px; margin-bottom: 30px;">
-                                <div class="col" style="max-width: 40px; margin-left: 15px; padding: 0px;">
-                                    <img class="ch-profile" style="padding: 0px; margin: 0px;" src="img/profiles/my_profile.jpg" alt="" >
-                                </div>
-                                <div class="col" style="padding-left: 25px;">
-                                    <div style="font-weight: bold;">${myAccount.handle}</div>
-                                    <div id="text">
-                                        <!-- 댓글 내용 --!>
-                                    </div>
-                                </div>
-                                <button class="comm-side-btn" style="margin-right: 30px;" value="${commId}" onclick="openDel(this)">
-                                    <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 12.5C12.2761 12.5 12.5 12.2761 12.5 12C12.5 11.7239 12.2761 11.5 12 11.5C11.7239 11.5 11.5 11.7239 11.5 12C11.5 12.2761 11.7239 12.5 12 12.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 18.5C12.2761 18.5 12.5 18.2761 12.5 18C12.5 17.7239 12.2761 17.5 12 17.5C11.7239 17.5 11.5 17.7239 11.5 18C11.5 18.2761 11.7239 18.5 12 18.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 6.5C12.2761 6.5 12.5 6.27614 12.5 6C12.5 5.72386 12.2761 5.5 12 5.5C11.7239 5.5 11.5 5.72386 11.5 6C11.5 6.27614 11.7239 6.5 12 6.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                                </button>
-                                </div>
-                                <div class="modal" id="modal-delete_${commId}" onclick="closeDel(this)">
-                                    <div class="modal-delete" id="delBox_${commId}">
-                                        <button class="row" style="background-color: rgb(0,0,0,0);" value="comm_${commId}" onclick="deleteComm(this)">
-                                            <div class="col" style="padding: 0px; max-width: 24px;">
-                                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M11 17H9V8h2v9zm4-9h-2v9h2V8zm4-4v1h-1v16H6V5H5V4h4V3h6v1h4zm-2 1H7v15h10V5z"></path></svg>
-                                            </div>
-                                            <div class="col">삭제</div>
-                                        </button>
-                                    </div>
+            subBtn.addEventListener('click', function() {
+                commList.insertAdjacentHTML("afterbegin",`
+                    <div id="comm_${++commId}">
+                        <div class="row" style="padding: 0px; margin-top: 30px;">
+                            <div class="col" style="max-width: 40px; margin-left: 15px; padding: 0px;">
+                                <img class="ch-profile" style="padding: 0px; margin: 0px;" src="img/profiles/my_profile.jpg" alt="" >
+                            </div>
+                            <div class="col" style="padding-left: 25px;">
+                                <div style="font-weight: bold; margin-bottom: 3px;">${myAccount.handle}</div>
+                                <pre id="text">
+                                    <!-- 댓글 내용 --!>
+                                </pre>
+                            </div>
+                            <button class="comm-side-btn" style="margin-right: 30px;" value="${commId}" onclick="openDel(this)">
+                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 12.5C12.2761 12.5 12.5 12.2761 12.5 12C12.5 11.7239 12.2761 11.5 12 11.5C11.7239 11.5 11.5 11.7239 11.5 12C11.5 12.2761 11.7239 12.5 12 12.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 18.5C12.2761 18.5 12.5 18.2761 12.5 18C12.5 17.7239 12.2761 17.5 12 17.5C11.7239 17.5 11.5 17.7239 11.5 18C11.5 18.2761 11.7239 18.5 12 18.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 6.5C12.2761 6.5 12.5 6.27614 12.5 6C12.5 5.72386 12.2761 5.5 12 5.5C11.7239 5.5 11.5 5.72386 11.5 6C11.5 6.27614 11.7239 6.5 12 6.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            </button>
+                            </div>
+                            <div class="modal" id="modal-delete_${commId}" onclick="closeDel(this)">
+                                <div class="modal-delete" id="delBox_${commId}">
+                                    <button class="row" style="background-color: rgb(0,0,0,0);" value="comm_${commId}" onclick="deleteComm(this)">
+                                        <div class="col" style="padding: 0px; max-width: 24px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M11 17H9V8h2v9zm4-9h-2v9h2V8zm4-4v1h-1v16H6V5H5V4h4V3h6v1h4zm-2 1H7v15h10V5z"></path></svg>
+                                        </div>
+                                        <div class="col">삭제</div>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    `);
-                    document.getElementById("text").textContent = this.value;
-                    this.value = "";
-                    document.getElementById("commNum").textContent = `댓글 ${++commNum}개`;
-                }
+                    </div>
+                `);
+                document.getElementById("text").textContent = commInput.value;
+                commInput.value = "";
+                subBtn.disabled = true;
+                commBtnCont.style.display = "none";
+                document.getElementById("commNum").textContent = `댓글 ${++commNum}개`;
             })
 
             let delId;
@@ -258,7 +249,7 @@
                 delId = bt.value;
                 document.getElementById(`modal-delete_${delId}`).style.display = "flex";
                 document.getElementById(`delBox_${delId}`).style.top = `${bt.getBoundingClientRect().y}px`;
-                document.getElementById(`delBox_${delId}`).style.left = `${bt.getBoundingClientRect().x + 50}px`;
+                document.getElementById(`delBox_${delId}`).style.left = `${bt.getBoundingClientRect().x - 110}px`;
             }
 
             function closeDel(bt) {

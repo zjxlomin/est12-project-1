@@ -137,6 +137,41 @@ const myAccount = {
     profile: "img/profiles/my_profile.jpg",
 }
 
+function showHeader(myAccount) {
+    document.write(`
+        <nav class="navbar navbar-expand-lg navbar-light bg-white" style="position: fixed; z-index: 1;">
+            <!-- 좌측 사이드바 확장/축소 버튼 -->
+            <button id="left-btn" class="left-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
+            </button>
+            <!-- 로고 -->
+            <a href="home.html">
+                <img src="img/yt_icon.png" alt="" class="home-icon">
+            </a>
+            <!-- 검색창 -->
+            <div style="position: absolute; right: 20%; left: 23%; max-width: 500px;">
+                <input id="search" class="search-bar" type="text" placeholder="검색">
+                <button class="search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="30" height="30"><path fill-rule="evenodd" d="M12.323 13.383a5.5 5.5 0 1 1 1.06-1.06l2.897 2.897a.75.75 0 1 1-1.06 1.06l-2.897-2.897Zm.677-4.383a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>
+                </button>
+                <button id="clear" class="clear-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+            <!-- 프로필 사진 -->
+            <button class="btn-open-modal" style="position: absolute; right: 20px; background-color: rgb(0,0,0,0);">
+                <img class="ch-profile" src=${myAccount.profile} alt="" >
+            </button>
+            <div class="modal" id="modal-mymenu">
+                <!-- 계정 정보 메뉴 modal -->
+                <div class="modal-my">
+                    <script>showMymenu(myAccount);</script>
+                </div>
+            </div>
+        </nav>
+    `);
+}
+
 function showMymenu(myAccount) {
     document.write(`
         <div class="row menu-section" style="padding-top: 15px;">
@@ -554,7 +589,7 @@ function showRecomm(videoList, id) {
                         </div>
                     </div>
                     <!-- 영상 정보 -->
-                    <div class="col" style="margin-top: 5px; padding: 0px; padding-right: 5px;">
+                    <div class="col" style="margin-top: 5px; padding: 0px;">
                         <p class="vid-info" style="font-weight: bold; font-size: 15px;">
                             ${video.title}
                         </p>
@@ -564,6 +599,11 @@ function showRecomm(videoList, id) {
                         <p class="vid-info" style="font-size: 12px;">
                             조회수 ${video.views}회 · ${video.uploaded}
                         </p>
+                    </div>
+                    <div class="col" style="max-width: 30px; padding: 0px 8px 0px 0px;">
+                        <button class="comm-side-btn">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 12.5C12.2761 12.5 12.5 12.2761 12.5 12C12.5 11.7239 12.2761 11.5 12 11.5C11.7239 11.5 11.5 11.7239 11.5 12C11.5 12.2761 11.7239 12.5 12 12.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 18.5C12.2761 18.5 12.5 18.2761 12.5 18C12.5 17.7239 12.2761 17.5 12 17.5C11.7239 17.5 11.5 17.7239 11.5 18C11.5 18.2761 11.7239 18.5 12 18.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 6.5C12.2761 6.5 12.5 6.27614 12.5 6C12.5 5.72386 12.2761 5.5 12 5.5C11.7239 5.5 11.5 5.72386 11.5 6C11.5 6.27614 11.7239 6.5 12 6.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        </button>
                     </div>
                 </div>
             </a>
