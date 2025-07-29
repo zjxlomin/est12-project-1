@@ -225,13 +225,15 @@
                                 </div>
                                 <div class="col" style="padding-left: 25px;">
                                     <div style="font-weight: bold;">${myAccount.handle}</div>
-                                    <div id="text"></div>
+                                    <div id="text">
+                                        <!-- 댓글 내용 --!>
+                                    </div>
                                 </div>
                                 <button class="comm-side-btn" style="margin-right: 30px;" value="${commId}" onclick="openDel(this)">
                                     <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 12.5C12.2761 12.5 12.5 12.2761 12.5 12C12.5 11.7239 12.2761 11.5 12 11.5C11.7239 11.5 11.5 11.7239 11.5 12C11.5 12.2761 11.7239 12.5 12 12.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 18.5C12.2761 18.5 12.5 18.2761 12.5 18C12.5 17.7239 12.2761 17.5 12 17.5C11.7239 17.5 11.5 17.7239 11.5 18C11.5 18.2761 11.7239 18.5 12 18.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 6.5C12.2761 6.5 12.5 6.27614 12.5 6C12.5 5.72386 12.2761 5.5 12 5.5C11.7239 5.5 11.5 5.72386 11.5 6C11.5 6.27614 11.7239 6.5 12 6.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </button>
                                 </div>
-                                <div class="modal" id="modal-delete_${commId}">
+                                <div class="modal" id="modal-delete_${commId}" onclick="closeDel(this)">
                                     <div class="modal-delete" id="delBox_${commId}">
                                         <button class="row" style="background-color: rgb(0,0,0,0);" value="comm_${commId}" onclick="deleteComm(this)">
                                             <div class="col" style="padding: 0px; max-width: 24px;">
@@ -258,11 +260,10 @@
                 document.getElementById(`delBox_${delId}`).style.top = `${bt.getBoundingClientRect().y}px`;
                 document.getElementById(`delBox_${delId}`).style.left = `${bt.getBoundingClientRect().x + 50}px`;
             }
-            modalDel.addEventListener("click", function(e) {
-                if(e.target == modalDel) {
-                    modalDel.style.display = "none";
-                }
-            })
+
+            function closeDel(bt) {
+                bt.style.display = "none";
+            }
 
             function deleteComm(bt) {
                 document.getElementById(bt.value).remove();
