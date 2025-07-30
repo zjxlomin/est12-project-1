@@ -35,7 +35,7 @@
                         <!-- 좋아요/싫어요 버튼 -->
                         <button id="like" class="like-btn">
                             <div class="row">
-                                <div class="col" style="max-width: 20px; margin-left: 25px; margin-bottom: 5px;">
+                                <div class="col" style="max-width: 20px; margin-left: 20px; margin-bottom: 5px;">
                                     <?xml version="1.0" standalone="no"?>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="20" height="20">
                                         <path id="likeIcon" fill="#000000" d="M273 495.9v428l.3-428zm538.2-88.3H496.8l9.6-198.4c.6-11.9-4.7-23.1-14.6-30.5-6.1-4.5-13.6-6.8-21.1-6.7-19.6.1-36.9 13.4-42.2 32.3-37.1 134.4-64.9 235.2-83.5 302.5V852h399.4a56.85 56.85 0 0 0 33.6-51.8c0-9.7-2.3-18.9-6.9-27.3l-13.9-25.4 21.9-19a56.76 56.76 0 0 0 19.6-43c0-9.7-2.3-18.9-6.9-27.3l-13.9-25.4 21.9-19a56.76 56.76 0 0 0 19.6-43c0-9.7-2.3-18.9-6.9-27.3l-14-25.5 21.9-19a56.76 56.76 0 0 0 19.6-43c0-19.1-11-37.5-28.8-48.4z"/>
@@ -43,7 +43,7 @@
                                     </svg>
                                 </div>
                                 <div class="col" style="max-width: 80px; margin-top: 3px; margin-right: 5px;">
-                                    <p id="likeNum" style="margin: 0px; padding: 0px;">123</p>
+                                    <p id="likeNum" style="margin: 0px; padding: 0px;">1234</p>
                                 </div>
                             </div>
                         </button>
@@ -57,7 +57,7 @@
                     </div>
                     <!-- 댓글창 -->
                     <div class="row">
-                        <h5 id="commNum" style="margin-top: 20px; padding-left: 12px; font-weight: bold;">
+                        <h5 id="commNum" style="margin-top: 20px; margin-bottom: 20px; padding-left: 12px; font-weight: bold;">
                             댓글 1개
                         </h5>
                         <!-- 댓글 입력 -->
@@ -133,7 +133,7 @@
             })
 
             // 좋아요/싫어요 버튼
-            let likes = 123;
+            let likes = 1234;
             let isLiked = false;
             let isDisliked = false;
 
@@ -219,20 +219,19 @@
                                     <!-- 댓글 내용 --!>
                                 </pre>
                             </div>
-                            <button class="comm-side-btn" style="margin-right: 30px;" value="${commId}" onclick="openDel(this)">
+                            <!-- 댓글 삭제 팝업 --!>
+                            <div class="delete-popup" id="delBox_${commId}" style="display: none;">
+                                <button class="row" style="background-color: rgb(0,0,0,0);" value="comm_${commId}" onclick="deleteComm(this)">
+                                    <div class="col" style="padding: 0px 0px 12px 0px; max-width: 24px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M11 17H9V8h2v9zm4-9h-2v9h2V8zm4-4v1h-1v16H6V5H5V4h4V3h6v1h4zm-2 1H7v15h10V5z"></path></svg>
+                                    </div>
+                                    <div class="col">삭제</div>
+                                </button>
+                            </div>
+                            <!-- 팝업 열기/닫기 버튼 --!>
+                            <button class="comm-side-btn" style="margin-right: 30px;" value="${commId}" onclick="delPopup(this)">
                                 <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 12.5C12.2761 12.5 12.5 12.2761 12.5 12C12.5 11.7239 12.2761 11.5 12 11.5C11.7239 11.5 11.5 11.7239 11.5 12C11.5 12.2761 11.7239 12.5 12 12.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 18.5C12.2761 18.5 12.5 18.2761 12.5 18C12.5 17.7239 12.2761 17.5 12 17.5C11.7239 17.5 11.5 17.7239 11.5 18C11.5 18.2761 11.7239 18.5 12 18.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 6.5C12.2761 6.5 12.5 6.27614 12.5 6C12.5 5.72386 12.2761 5.5 12 5.5C11.7239 5.5 11.5 5.72386 11.5 6C11.5 6.27614 11.7239 6.5 12 6.5Z" fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                             </button>
-                            </div>
-                            <div class="modal" id="modal-delete_${commId}" onclick="closeDel(this)">
-                                <div class="modal-delete" id="delBox_${commId}">
-                                    <button class="row" style="background-color: rgb(0,0,0,0);" value="comm_${commId}" onclick="deleteComm(this)">
-                                        <div class="col" style="padding: 0px; max-width: 24px;">
-                                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M11 17H9V8h2v9zm4-9h-2v9h2V8zm4-4v1h-1v16H6V5H5V4h4V3h6v1h4zm-2 1H7v15h10V5z"></path></svg>
-                                        </div>
-                                        <div class="col">삭제</div>
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 `);
@@ -244,20 +243,23 @@
             })
 
             let delId;
+            let isDelOpened = false;
 
-            function openDel(bt) {
-                delId = bt.value;
-                document.getElementById(`modal-delete_${delId}`).style.display = "flex";
-                document.getElementById(`delBox_${delId}`).style.top = `${bt.getBoundingClientRect().y}px`;
-                document.getElementById(`delBox_${delId}`).style.left = `${bt.getBoundingClientRect().x - 110}px`;
-            }
-
-            function closeDel(bt) {
-                bt.style.display = "none";
+            function delPopup(bt) {
+                if(!isDelOpened) {
+                    delId = bt.value;
+                    document.getElementById(`delBox_${delId}`).style.display = "flex";
+                    isDelOpened = true;
+                }
+                else {
+                    document.getElementById(`delBox_${delId}`).style.display = "none";
+                    isDelOpened = false;
+                }
             }
 
             function deleteComm(bt) {
                 document.getElementById(bt.value).remove();
+                isDelOpened = false;
                 document.getElementById("commNum").textContent = `댓글 ${--commNum}개`;
             }
         </script>
