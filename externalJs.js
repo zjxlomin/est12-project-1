@@ -1,3 +1,4 @@
+// 영상 데이터
 const videoList = [
     {
         videoId: 1,
@@ -131,12 +132,14 @@ const videoList = [
     },
 ]
 
+// 내 계정 정보
 const myAccount = {
     name: "신승민",
     handle: "@zjxlomin",
     profile: "img/profiles/my_profile.jpg",
 }
 
+// 상단 네비게이션 바
 function showHeader(myAccount) {
     document.write(`
         <nav class="navbar navbar-expand-lg navbar-light bg-white" style="position: fixed; z-index: 1;">
@@ -172,6 +175,7 @@ function showHeader(myAccount) {
     `);
 }
 
+// 계정 정보 메뉴
 function showMymenu(myAccount) {
     document.write(`
         <div class="row menu-section" style="padding-top: 15px;">
@@ -312,6 +316,7 @@ function showMymenu(myAccount) {
     `);
 }
 
+// 좌측 네비게이션 바
 function showLeftside(isHome, isSub) {
     document.write(`
         <!-- 확장된 사이드바 --!>
@@ -461,6 +466,7 @@ function showLeftside(isHome, isSub) {
     `);
 }
 
+// 영상 썸네일 목록 그리드형
 function showThumbsGrid(videoList) {
     for(const video of videoList) {
         document.write(`
@@ -495,6 +501,7 @@ function showThumbsGrid(videoList) {
     }
 }
 
+// 영상 썸네일 목록 리스트형
 function showThumbsList(videoList) {
     for(const video of videoList) {
         document.write(`
@@ -538,6 +545,7 @@ const urlParams = new URL(location.href).searchParams;
 const id = urlParams.get('videoId');
 const video = videoList[id-1];
 
+// 현재 영상 재생 및 정보 표시
 function showVideo(video) {
     document.write(`
         <div class="video">
@@ -571,6 +579,7 @@ function showVideo(video) {
     `);
 }
 
+// 우측 사이드바 영상 목록
 function showRecomm(videoList, id) {
     let i = 1;
     for(let video of videoList) {
