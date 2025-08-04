@@ -14,11 +14,11 @@
             <div class="row">
                 <!-- 사이드바 -->
                 <div class="col side-bar-home">
-                    <script>showLeftside(true, false);</script>
+                    <script>showLeftside(false, false);</script>
                 </div>
                 <!-- 영상 목록 -->
                 <div class="col content">
-                    <script>showResult(keyword, videoList);</script>
+                    <script>showSearchResult(keyword, videoList);</script>
                 </div>
             </div>
         </div>
@@ -53,6 +53,8 @@
             const searchKeyword = document.getElementById("search");
             const keywordClear = document.getElementById("clear");
             const searchBtn = document.getElementById("search-res");
+
+            searchKeyword.value = keyword;
             
             keywordClear.addEventListener('click', function() {
                 searchKeyword.value = "";

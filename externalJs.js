@@ -625,7 +625,7 @@ function showRecomm(videoList, id) {
 const keyword = urlParams.get('keyword');
 
 // 검색 결과
-function showResult(keyword, videoList) {
+function showSearchResult(keyword, videoList) {
     const kw = new RegExp(keyword, "gi");
     let results = 0;
     for(const video of videoList) {
