@@ -49,20 +49,26 @@
                 }
             })
 
-            // 검색어 지우기
+            // 검색어 지우기, 이동
             const searchKeyword = document.getElementById("search");
+            const keywordClear = document.getElementById("clear");
+            const searchBtn = document.getElementById("search-res");
             
-            document.getElementById("clear").addEventListener('click', function() {
+            keywordClear.addEventListener('click', function() {
                 searchKeyword.value = "";
             })
 
-            // 검색 이동
-            document.getElementById("search-res").addEventListener('click', function() {
+            searchKeyword.addEventListener('input', function() {
+                searchBtn.disabled = false;
+                if(this.value == "") searchBtn.disabled = true;
+            })
+
+            searchBtn.addEventListener('click', function() {
                 location.href=`search.html?keyword=${searchKeyword.value}`;
             })
 
             searchKeyword.addEventListener('keydown', function(event) {
-                if(event.key === "Enter") {
+                if(event.key === "Enter" && searchKeyword.value != "") {
                     location.href=`search.html?keyword=${searchKeyword.value}`;
                 }
             })
