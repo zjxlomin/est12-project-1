@@ -2,10 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>YouTube</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <script src="externalJs.js"></script>
+        <script>document.title = `${keyword} - YouTube`;</script>
     </head>
     <body>
         <!-- 상단바 -->
@@ -18,12 +18,11 @@
                 </div>
                 <!-- 영상 목록 -->
                 <div class="col content">
-                    <div class="row">
-                        <script>showThumbsGrid(videoList);</script>
-                    </div>
+                    <script>showResult(keyword, videoList);</script>
                 </div>
             </div>
         </div>
+
         <script>
             // 좌측 사이드바 확장/축소
             const leftBtn = document.getElementById("left-btn");

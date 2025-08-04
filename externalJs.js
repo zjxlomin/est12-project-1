@@ -154,7 +154,7 @@ function showHeader(myAccount) {
             <!-- 검색창 -->
             <div style="position: absolute; right: 20%; left: 23%; max-width: 500px;">
                 <input id="search" class="search-bar" type="text" placeholder="검색">
-                <button class="search-btn">
+                <button id="search-res" class="search-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="30" height="30"><path fill-rule="evenodd" d="M12.323 13.383a5.5 5.5 0 1 1 1.06-1.06l2.897 2.897a.75.75 0 1 1-1.06 1.06l-2.897-2.897Zm.677-4.383a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>
                 </button>
                 <button id="clear" class="clear-btn">
@@ -582,7 +582,7 @@ function showVideo(video) {
 // 우측 사이드바 영상 목록
 function showRecomm(videoList, id) {
     let i = 1;
-    for(let video of videoList) {
+    for(const video of videoList) {
         if(i == id) {
             i++;
             continue;
@@ -618,5 +618,48 @@ function showRecomm(videoList, id) {
             </a>
         `);
         i++;
+    }
+}
+
+// search.html
+const keyword = urlParams.get('keyword');
+
+// 검색 결과
+function showResult(keyword, videoList) {
+    const kw = new RegExp(keyword, "gi");
+    let results = 0;
+    for(const video of videoList) {
+        if(kw.test(video.title) || kw.test(video.channel)) {
+            document.write(`
+                <a class="card" href="video.html?videoId=${video.videoId}" style="text-decoration: none; width: 100%;">
+                    <div class="row">
+                        <!-- 썸네일, 러닝타임 -->
+                        <div class="col" style="position: relative; max-width: 380px;">
+                            <img src=${video.thumbnail} class="card-img-top" alt="..." style="border-radius: 10px; width: 360px;">
+                            <div class="vid-time" style="right: 12px; top: 177px;">
+                                ${video.time}
+                            </div>
+                        </div>
+                        <!-- 영상 정보 -->
+                        <div class="col" style="margin-top: 5px; padding: 0px; padding-right: 5px;">
+                            <p class="vid-info" style="font-weight: bold; font-size: 15px;">
+                                ${video.title}
+                            </p>
+                            <p class="vid-info" style="font-size: 12px;">
+                                ${video.channel}
+                            </p>
+                            <p class="vid-info" style="font-size: 12px;">
+                                조회수 ${video.views}회 · ${video.uploaded}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            `);
+            results++;
+        }
+    }
+    if(results == 0) {
+        alert(`\"${keyword}\" 검색 결과가 없습니다.`);
+        history.back();
     }
 }

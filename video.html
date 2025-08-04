@@ -98,8 +98,21 @@
 
         <script>
             // 검색어 지우기
+            const searchKeyword = document.getElementById("search");
+            
             document.getElementById("clear").addEventListener('click', function() {
-                document.getElementById("search").value = "";
+                searchKeyword.value = "";
+            })
+
+            // 검색 이동
+            document.getElementById("search-res").addEventListener('click', function() {
+                location.href=`search.html?keyword=${searchKeyword.value}`;
+            })
+
+            searchKeyword.addEventListener('keydown', function(event) {
+                if(event.key === "Enter") {
+                    location.href=`search.html?keyword=${searchKeyword.value}`;
+                }
             })
 
             // 계정 정보 메뉴 modal
