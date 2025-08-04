@@ -27,6 +27,8 @@
     * 댓글 작성 및 삭제
     * 우측 사이드바에 다른 영상 나열
     * 다른 영상 화면 이동
+  * __검색 화면__
+    * 검색 결과 일치하는 영상 나열
    
 ## 폴더 구조
   * /est12-project-1
@@ -35,6 +37,7 @@
     * home.html
     * subscribe.html
     * video.html
+    * search.html
     * externalJs.js
     * style.css
 
