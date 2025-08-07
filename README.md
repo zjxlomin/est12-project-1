@@ -34,7 +34,7 @@
   * /est12-project-1
     * /img
       * /profiles
-    * home.html
+    * index.html
     * subscribe.html
     * video.html
     * search.html
