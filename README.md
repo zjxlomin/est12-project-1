@@ -1,5 +1,4 @@
 # YouTube 클론 웹사이트
-  https://zjxlomin.github.io/est12-project-1/home.html<br>
   기초 웹 프론트엔드 기술을 기반으로 제작한 유튜브 클론 웹사이트입니다. 실제 유튜브의 주요 UI 요소와 반응형 레이아웃을 HTML, CSS, JavaScript를 이용하여 모방하였습니다.
 
 ## 프로젝트 개요
