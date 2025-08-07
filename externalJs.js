@@ -148,7 +148,7 @@ function showHeader(myAccount) {
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path></svg>
             </button>
             <!-- 로고 -->
-            <a href="home.html">
+            <a href="index.html">
                 <img src="img/yt_icon.png" alt="" class="home-icon">
             </a>
             <!-- 검색창 -->
@@ -322,7 +322,7 @@ function showLeftside(isHome, isSub) {
         <!-- 확장된 사이드바 --!>
         <div id="leftNormal" style="display: block;">
             <div class="row menu-section">
-                <a href="home.html" class="menu-btn row" style="height: 40px; border-radius: 10px;
+                <a href="index.html" class="menu-btn row" style="height: 40px; border-radius: 10px;
                     ${isHome ? `background-color: rgb(0,0,0,0.1);` : `` }
                 ">
                     <div class="col" style="padding: 0px; max-width: 24px;">
@@ -418,7 +418,7 @@ function showLeftside(isHome, isSub) {
         </div>
         <!-- 축소된 사이드바 --!>
         <div id="leftShrinked" style="display: none;">
-            <a href="home.html" class="menu-btn-sh row" style="height: 75px; border-radius: 10px;">
+            <a href="index.html" class="menu-btn-sh row" style="height: 75px; border-radius: 10px;">
                 <div class="row" style="padding: 0px; max-height: 48px; width: 48px;">
                     ${isHome ? 
                     `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path clip-rule="evenodd" d="M22.146 11.146a.5.5 0 01-.353.854H20v7.5a1.5 1.5 0 01-1.5 1.5H14v-8h-4v8H5.5A1.5 1.5 0 014 19.5V12H2.207a.5.5 0 01-.353-.854L12 1l10.146 10.146Z" fill-rule="evenodd"></path></svg>`
